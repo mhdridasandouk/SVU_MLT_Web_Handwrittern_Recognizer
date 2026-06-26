@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognizer – Upload</title>
+    <link rel="stylesheet" href="{% static 'digit_reco_app/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✍️ Handwritten Digit Recognizer</h1>
+            <p class="subtitle">Upload an image of handwritten digits and let the model read them</p>
+        </header>
+
+        <main class="card">
+            <form method="post" enctype="multipart/form-data" id="upload-form">
+                {% csrf_token %}
+                <div class="file-area" id="file-area">
+                    <input type="file" name="digit_image" id="digit_image" accept="image/*" required>
+                    <label for="digit_image">
+                        <span class="upload-icon">📁</span>
+                        <span id="file-name">Choose an image or drag it here</span>
+                    </label>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" name="action" value="predict" class="btn btn-primary">
+                        🔢 Predict Numbers
+                    </button>
+                    <button type="submit" name="action" value="show_image" class="btn btn-secondary">
+                        🖼️ Predict & Show Image
+                    </button>
+                </div>
+            </form>
+
+            {% if error %}
+                <div class="message error">{{ error }}</div>
+            {% endif %}
+
+            {% if digits %}
+                <div class="result">
+                    <h2>Digits found:</h2>
+                    <div class="digit-list">
+                        {% for d in digits %}
+                            <span class="digit">{{ d }}</span>{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% elif digits is not None %}
+                <div class="message info">No digits detected.</div>
+            {% endif %}
+
+            {% if show_image and annotated_img %}
+                <div class="image-result">
+                    <h3>Annotated Image:</h3>
+                    <img src="{{ annotated_img }}" alt="Annotated image with predictions">
+                </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>Digit Recognizer — Homework Project</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'digit_reco_app/js/script.js' %}"></script>
+</body>
+</html>
