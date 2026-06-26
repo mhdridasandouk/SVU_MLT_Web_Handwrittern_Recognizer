@@ -9,5 +9,5 @@ class HandwrRecognizerConfig(AppConfig):
     MODEL_PATH = os.path.join(os.path.dirname(__file__), 'ml_model', 'digits.pkl')
 
     def ready(self):
-        # joblib.load can take a filename directly – no need for open()
+        
         self.classifier, self.scaler = joblib.load(self.MODEL_PATH)
