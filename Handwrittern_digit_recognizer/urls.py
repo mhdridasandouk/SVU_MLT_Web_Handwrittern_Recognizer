@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from handwr_recognizer import views
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), # no used for it now
+    path('recognizer/', views.recognize_digit, name='recognizer'),
+    path('', views.home, name='home'),
 ]
