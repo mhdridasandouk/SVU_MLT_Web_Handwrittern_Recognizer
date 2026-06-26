@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.apps import apps
 
-# Create your views here.
+def recognize_digit(request):
+    """view function that renders the upload.htlm page where the actual image processing occures"""
+    return render(request, 'digit_reco_app/upload.html')
+def home(request):
+    """view function that renders the home intro page"""
+    return render(request, 'digit_reco_app/home.html')
