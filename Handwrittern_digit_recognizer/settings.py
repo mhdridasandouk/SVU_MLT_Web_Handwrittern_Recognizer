@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-t8_dsq)qk65_un^cwo6lb_0ns9rmu0u&o@r1sw7+#k!vf*e)ih
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['svu-mlt-web-handwrittern-recognizer.onrender.com']
+ALLOWED_HOSTS = ['svu-mlt-web-handwrittern-recognizer.onrender.com','127.0.0.1']
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'Handwrittern_digit_recognizer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'template')],
+        'DIRS': [os.path.join(BASE_DIR,'handwr_recognizer', 'template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
