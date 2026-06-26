@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognizer – Home</title>
+    <link rel="stylesheet" href="{% static 'digit_reco_app/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✍️ Handwritten Digit Recognizer</h1>
+        </header>
+        <main class="card">
+            <p style="text-align:left;">
+                This project uses a CNN trained on MNIST
+                to recognise handwritten digits from an uploaded image.
+            </p>
+            <ul style="text-align:left; margin: 1rem 0 1.5rem 1.5rem;">
+                <li>Upload a clear photo of handwritten digits.</li>
+                <li>Click <strong>Predict Numbers</strong> to see the digits found.</li>
+                <li>Click <strong>Predict & Show Image</strong> to also view the annotated result.</li>
+            </ul>
+            <a href="{% url 'recognizer' %}" class="btn btn-primary" style="display:inline-block; text-decoration:none;">
+                Go to Uploader
+            </a>
+        </main>
+        <footer>
+            <p>Digit Recognizer — Homework Project</p>
+        </footer>
+    </div>
+</body>
+</html>
