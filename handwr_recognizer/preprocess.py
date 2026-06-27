@@ -6,7 +6,7 @@ from Handwrittern_digit_recognizer.ImageProcessingMaterials.digit_preprocessing 
 
 def compute_hog_features(gray_28x28, winSize=(28,28), blockSize=(14,14),
                          blockStride=(7,7), cellSize=(14,14), nbins=9):
-    """Compute HOG features exactly as the training notebook did."""
+    """Compute HOG features """
     hog = cv2.HOGDescriptor(
         _winSize=winSize,
         _blockSize=blockSize,
@@ -14,8 +14,8 @@ def compute_hog_features(gray_28x28, winSize=(28,28), blockSize=(14,14),
         _cellSize=cellSize,
         _nbins=nbins,
     )
-    # Input must be uint8 (the tile from segment_digits is already binary uint8)
-    feat = hog.compute(gray_28x28)   # returns (n,1) array
+    
+    feat = hog.compute(gray_28x28)   
     return feat.flatten()
 
 
@@ -42,7 +42,6 @@ def detect_and_predict(image_file, model, return_image=False, min_area=80,
         max_aspect=max_aspect,
         split_wide=split_wide,
     )
-    # Note: segment_digits returns tiles that are already 28x28 binary images
 
     digits = []
     annotated_img = img.copy() if return_image else None
