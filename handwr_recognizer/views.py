@@ -13,7 +13,7 @@ def recognize_digit(request):
         image_file = request.FILES['digit_image']
         action = request.POST.get('action', '')
 
-        config = apps.get_app_config('digit_reco_app')
+        config = apps.get_app_config('handwr_recognizer')
         model = config.model          # the loaded Pipeline
 
         try:
