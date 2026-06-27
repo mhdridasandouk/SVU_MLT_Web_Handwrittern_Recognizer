@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t8_dsq)qk65_un^cwo6lb_0ns9rmu0u&o@r1sw7+#k!vf*e)ih'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['svu-mlt-web-handwrittern-recognizer.onrender.com','127.0.0.1']
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'handwr_recognizer'
 ]
 
 MIDDLEWARE = [
